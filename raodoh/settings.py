@@ -194,27 +194,28 @@ LOGOUT_REDIRECT_URL = config('LOGOUT_REDIRECT_URL')
 
 
 # EMAIL_BACKEND production config (Gmail)
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+# EMAIL_HOST = config('EMAIL_HOST')
+# EMAIL_PORT = config('EMAIL_PORT', cast=int)
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 # EMAIL_BACKEND = config('EMAIL_BACKEND')
 
 
 # OTHER EMAIL SETTINGS #
 ########################
-ADMIN_EMAIL = config('ADMIN_EMAIL')
-SUPPORT_EMAIL = config('SUPPORT_EMAIL')
-DEFAULT_FROM_EMAIL = ADMIN_EMAIL
-SERVER_EMAIL = ADMIN_EMAIL
+# ADMIN_EMAIL = config('ADMIN_EMAIL')
+# SUPPORT_EMAIL = config('SUPPORT_EMAIL')
+# DEFAULT_FROM_EMAIL = ADMIN_EMAIL
+# SERVER_EMAIL = ADMIN_EMAIL
 
 
 # Cloudinary config
-cloudinary.config(
-    cloud_name=config('CLOUDINARY_CLOUD_NAME'),
-    api_key=config('CLOUDINARY_API_KEY'),
-    api_secret=config('CLOUDINARY_API_SECRET')
-)
+
+# cloudinary.config(
+#     cloud_name=config('CLOUDINARY_CLOUD_NAME'),
+#     api_key=config('CLOUDINARY_API_KEY'),
+#     api_secret=config('CLOUDINARY_API_SECRET')
+# )
 
 
 # django-cors config
@@ -222,11 +223,11 @@ cloudinary.config(
 
 # CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
 
-CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTIALS', cast=bool)
+# CORS_ALLOW_CREDENTIALS = config('CORS_ALLOW_CREDENTIALS', cast=bool)
 
-CORS_ALLOW_METHODS =config('CORS_ALLOW_METHODS', cast=Csv())
+# CORS_ALLOW_METHODS =config('CORS_ALLOW_METHODS', cast=Csv())
 
-CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
+# CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
 
 # CORS_ORIGIN_REGEX_WHITELIST = config('CORS_ORIGIN_REGEX_WHITELIST', cast=Csv())
 
