@@ -1,0 +1,16 @@
+django==2.2
+gunicorn
+django-crispy-forms
+djongo
+dnspython
+cloudinary
+django_countries
+django-filter
+pillow
+python-decouple
+django-cors-headers
+django-csp
+django-progressive-web-app
+python-social-auth
+social-auth-app-django
+
