@@ -28,12 +28,12 @@ PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js'
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+#kims_swzvczn9izvke+z0wuaq=ouuzg9o+5&-^l5cbignkox'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =  config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
@@ -241,51 +241,51 @@ LOGOUT_REDIRECT_URL = config('LOGOUT_REDIRECT_URL')
 
 
 # django-progressive-web-app config
-PWA_APP_NAME = 'Radodoh'
-PWA_APP_DESCRIPTION = ""
-PWA_APP_THEME_COLOR = '#0A0302'
-PWA_APP_BACKGROUND_COLOR = '#ffffff'
-PWA_APP_DISPLAY = 'standalone'
-PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
-PWA_APP_START_URL = '/'
-PWA_APP_ICONS = [{'src': '/static/img/', 'sizes': '160x160'}]
-PWA_APP_SPLASH_SCREEN = [{'src': '/static/img/ScholarX.png', 'media': '(device-width: 320px) and (device-height: '
-                                                                      '568px) and (-webkit-device-pixel-ratio: 2)'}]
-PWA_APP_DIR = 'ltr'
-PWA_APP_LANG = 'en-US'
-
-
-# logging config
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt': "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'mysite.log',
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'propagate': True,
-            'level': 'DEBUG',
-        },
-        'MYAPP': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-        },
-    }
-}
+# PWA_APP_NAME = 'Radodoh'
+# PWA_APP_DESCRIPTION = ""
+# PWA_APP_THEME_COLOR = '#0A0302'
+# PWA_APP_BACKGROUND_COLOR = '#ffffff'
+# PWA_APP_DISPLAY = 'standalone'
+# PWA_APP_SCOPE = '/'
+# PWA_APP_ORIENTATION = 'any'
+# PWA_APP_START_URL = '/'
+# PWA_APP_ICONS = [{'src': '/static/img/', 'sizes': '160x160'}]
+# PWA_APP_SPLASH_SCREEN = [{'src': '/static/img/ScholarX.png', 'media': '(device-width: 320px) and (device-height: '
+#                                                                       '568px) and (-webkit-device-pixel-ratio: 2)'}]
+# PWA_APP_DIR = 'ltr'
+# PWA_APP_LANG = 'en-US'
+#
+#
+# # logging config
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+#             'datefmt': "%d/%b/%Y %H:%M:%S"
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': 'mysite.log',
+#             'formatter': 'verbose'
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file'],
+#             'propagate': True,
+#             'level': 'DEBUG',
+#         },
+#         'MYAPP': {
+#             'handlers': ['file'],
+#             'level': 'DEBUG',
+#         },
+#     }
+# }
