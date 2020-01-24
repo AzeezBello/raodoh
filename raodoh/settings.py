@@ -243,20 +243,20 @@ LOGOUT_REDIRECT_URL = config('LOGOUT_REDIRECT_URL')
 
 
 # django-progressive-web-app config
-# PWA_APP_NAME = 'Radodoh'
-# PWA_APP_DESCRIPTION = ""
-# PWA_APP_THEME_COLOR = '#0A0302'
-# PWA_APP_BACKGROUND_COLOR = '#ffffff'
-# PWA_APP_DISPLAY = 'standalone'
-# PWA_APP_SCOPE = '/'
-# PWA_APP_ORIENTATION = 'any'
-# PWA_APP_START_URL = '/'
-# PWA_APP_ICONS = [{'src': '/static/img/', 'sizes': '160x160'}]
-# PWA_APP_SPLASH_SCREEN = [{'src': '/static/img/ScholarX.png', 'media': '(device-width: 320px) and (device-height: '
-#                                                                       '568px) and (-webkit-device-pixel-ratio: 2)'}]
-# PWA_APP_DIR = 'ltr'
-# PWA_APP_LANG = 'en-US'
-#
+PWA_APP_NAME = 'Radodoh'
+PWA_APP_DESCRIPTION = ""
+PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [{'src': '/static/img/Raodoh_logo.png', 'sizes': '160x160'}]
+PWA_APP_SPLASH_SCREEN = [{'src': '/static/img/Raodoh_logo.png', 'media': '(device-width: 320px) and (device-height: '
+                                                                      '568px) and (-webkit-device-pixel-ratio: 2)'}]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
+
 #
 # # logging config
 # LOGGING = {
