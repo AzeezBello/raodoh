@@ -1,1 +1,1 @@
-web: gunicorn scholarx.wsgi --log-file -
+web: gunicorn raodoh.wsgi --log-file -
