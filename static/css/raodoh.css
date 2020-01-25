@@ -18,3 +18,10 @@ h2{
 h3{
     font-size: 32px;
 } */
+
+
+/* login page */
+.reset-pwd{
+    padding-left: 5rem;
+    color: #0174C7;
+}
