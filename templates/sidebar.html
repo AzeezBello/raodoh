@@ -1,0 +1,68 @@
+{% load static %}
+
+{% block stylesheet %}
+    <!-- Custom styles for sidebar -->
+    <link href="{% static "css/sidebar.css" %}" rel="stylesheet">
+
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+{% endblock stylesheet %}
+
+{% block sidebar %}
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <a class="navbar-brand" href="/">
+                <img src="{% static '/img/Raodoh_logo.png' %}" alt="logo" class="img-responsive" style="height: 60px; width: 200px">
+            </a>
+        </div>
+       
+
+        <ul class="list-unstyled components">
+            <p>Dummy Heading</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Course title</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Lesson 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Lesson 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Lesson 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Course title</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Lesson 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Lesson 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Lesson 3</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+    </nav>
+
+
+
+{% endblock sidebar %}
+
+
+

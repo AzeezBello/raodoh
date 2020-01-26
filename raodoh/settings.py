@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
+    'members_area.apps.MembersAreaConfig',
     'cloudinary',
     'crispy_forms',
     'django_countries',
