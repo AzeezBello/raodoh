@@ -80,4 +80,9 @@ p {
     margin: 40px 0;
 }
 
+.video-fluid {
+  width: 100%;
+  height: auto;
+}
+
 
