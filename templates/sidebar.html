@@ -17,72 +17,29 @@
 
         <ul class="list-unstyled components">
             <h4 class="ml-2">Courses</h4>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Course Title</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Lesson 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Course Title</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Lesson 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Course Title</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Lesson 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 3</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Course Title</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Lesson 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Lesson 3</a>
-                    </li>
-                </ul>
-            </li>
+            {% for course in courses %}
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ course.title | slice:":24"}}</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        {% for lesson in lessons %}
+                            <li>
+                                <a href="#">{{ lesson.title.all }}</a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </li>
+            {% endfor %}
         </ul>
 
         <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                </li>
-            </ul>
+            <li>
+                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+            </li>
+            <li>
+                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+            </li>
+        </ul>
     </nav>
 
 

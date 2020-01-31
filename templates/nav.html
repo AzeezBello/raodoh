@@ -7,7 +7,21 @@
     <a class="navbar-brand" href="/">
         <img src="{% static '/img/Raodoh_logo.png' %}" alt="logo" class="img-responsive" style="height: 60px; width: 150px">
     </a>
+    <div class="ml-auto">
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="nav-link " href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="accounts/login">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/signup">Sign up</a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <!-- NAVBAR ENDS -->
+
 {% endblock nav %}

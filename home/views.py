@@ -8,10 +8,9 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib import messages
 from django.template.loader import render_to_string
 from .models import User
+from .forms import UserForm
 from .tokens import account_activation_token
 from django.db import transaction
-
-
 
 
 # Create your views here.
@@ -25,16 +24,33 @@ def thanks(request):
     return render(request, 'home/thanks.html', {})
 
 
+def upload(request):
 
-
-
-
-
+    return render(request, 'home/upload.html', {})
 
 
 def signup(request):
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.is_active = False
+            user.save()
+            current_site = get_current_site(request)
+            subject = 'Activate Your ScholarX Account'
+            message = render_to_string('registration/activation_email.html', {
+                'user': user,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': account_activation_token.make_token(user),
+            })
+            user.email_user(subject, message)
+            return redirect('activation_sent')
 
-    return render(request, 'registration/signup.html', {})
+    else:
+        form = UserForm()
+
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 # def activation_sent(request):
