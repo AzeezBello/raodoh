@@ -1,7 +1,6 @@
 {% load static %}
+
 {% block nav %}
-
-
 <!-- NAVBAR STARTS -->
 <nav class="navbar navbar-default navbar-expand-lg">
     <a class="navbar-brand" href="/">
@@ -16,9 +15,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="/members_area">Members Area</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {% load cloudinary %}{% cloudinary user.photo.image.public_id className="my-class" height=25 width=25 radius="max" %} {{ user.username }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/profile">My Profile</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link " href="/accounts/login">Log In</a>
+                    <a class="nav-link " href="/login">Log In</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="/signup">Sign up</a>

@@ -21,9 +21,9 @@
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ course.title | slice:":24"}}</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        {% for lesson in lessons %}
+                        {% for lesson in course.lessons.all %}
                             <li>
-                                <a href="#">{{ lesson.title.all }}</a>
+                                <a href="#">{{ lesson.title }}</a>
                             </li>
                         {% endfor %}
 

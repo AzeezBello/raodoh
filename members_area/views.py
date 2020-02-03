@@ -7,7 +7,7 @@ def members_area(request):
     courses = Course.objects.all()
     print(courses)
     # print(courses.lessons.all())
-    lessons = Course.lessons
+    lessons = Course.objects.all().prefetch_related('lessons')
     print(lessons)
     context = {
         "courses": courses,

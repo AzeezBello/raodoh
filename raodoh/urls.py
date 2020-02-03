@@ -27,7 +27,7 @@ admin.empty_value_display = '**Empty**'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
     path('', include('home.urls')),
     path('', include('members_area.urls')),
     path('', include('pwa.urls')),
