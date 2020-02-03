@@ -168,7 +168,7 @@ LOGOUT_REDIRECT_URL = config('LOGOUT_REDIRECT_URL')
 
 
 # EMAIL_BACKEND During development only
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # EMAIL_BACKEND production config (Gmail)

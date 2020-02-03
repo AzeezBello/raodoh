@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 
 class UserForm(UserCreationForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+    # password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
         model = User

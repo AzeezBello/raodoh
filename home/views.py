@@ -29,6 +29,28 @@ def upload(request):
     return render(request, 'home/upload.html', {})
 
 
+def activation_sent(request):
+
+    return render(request, 'registration/activation_sent.html', {})
+
+
+def activate(request, uidb64, token):
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.email_confirmed = True
+        user.save()
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+        return redirect('index')
+    else:
+        return render(request, 'registration/activation_invalid.html')
+
+
 def signup(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
@@ -37,7 +59,7 @@ def signup(request):
             user.is_active = False
             user.save()
             current_site = get_current_site(request)
-            subject = 'Activate Your ScholarX Account'
+            subject = 'Activate Your Raodoh Account'
             message = render_to_string('registration/activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
@@ -53,56 +75,31 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-# def activation_sent(request):
+def profile(request):
 
-#     return render(request, 'registration/activation_sent.html', {})
-
-
-# def activate(request, uidb64, token):
-#     try:
-#         uid = urlsafe_base64_decode(uidb64).decode()
-#         user = User.objects.get(pk=uid)
-#     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-#         user = None
-
-#     if user is not None and account_activation_token.check_token(user, token):
-#         user.is_active = True
-#         user.email_confirmed = True
-#         user.save()
-#         login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-#         return redirect('index')
-#     else:
-#         return render(request, 'registration/activation_invalid.html')
+    return render(request, 'registration/profile.html', {'user': request.user})
 
 
+@transaction.atomic
+def edit_profile(request):
+    if request.method == 'POST':
+        user_form = ChangeForm(request.POST, request.FILES, instance=request.user)
+        form = ProfileForm(request.POST, file=request.FILES, instance=request.user.student)
+        if user_form.is_valid() and form.is_valid():
+            user_form.save()
+            form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('profile')
 
+        else:
+            messages.error(request, 'Please correct the error below.')
 
-# def Profile(request):
+    else:
+        user_form = ChangeForm(instance=request.user)
+        form = ProfileForm(instance=request.user)
 
-#     return render(request, 'home/profile.html', {'user': request.user})
-
-
-# @transaction.atomic
-# @user_passes_test(lambda u: u.is_student)
-# def editProfile(request):
-#     if request.method == 'POST':
-#         user_form = ChangeForm(request.POST, request.FILES, instance=request.user)
-#         form = ProfileForm(request.POST, file=request.FILES, instance=request.user.student)
-#         if user_form.is_valid() and form.is_valid():
-#             user_form.save()
-#             form.save()
-#             messages.success(request, 'Your profile was successfully updated!')
-#             return redirect('student-profile')
-
-#         else:
-#             messages.error(request, 'Please correct the error below.')
-
-#     else:
-#         user_form = ChangeForm(instance=request.user)
-#         form = ProfileForm(instance=request.user)
-
-#     return render(request, 'home/edit_profile.html', {
-#         'user_form': user_form,
-#         'form': form
-#     })
+    return render(request, 'registration/edit_profile.html', {
+        'user_form': user_form,
+        'form': form
+    })
 
