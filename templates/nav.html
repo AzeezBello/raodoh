@@ -9,15 +9,21 @@
     </a>
     <div class="ml-auto">
         <ul class="navbar-nav navbar-right">
+            {% if user.is_authenticated %}
             <li class="nav-item">
                 <a class="nav-link " href="/dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/accounts/login">Log In</a>
+                <a class="nav-link" href="/members_area">Members Area</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="/signup">Sign up</a>
-            </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link " href="/accounts/login">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/signup">Sign up</a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
