@@ -23,7 +23,7 @@
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         {% for lesson in course.lessons.all %}
                             <li>
-                                <a href="#">{{ lesson.title }}</a>
+                                <a href="{% url 'lesson' lesson.pk%}">{{ lesson.title }}</a>
                             </li>
                         {% endfor %}
 

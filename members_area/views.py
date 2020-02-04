@@ -6,9 +6,8 @@ from .models import Course, Lesson
 def members_area(request):
     courses = Course.objects.all()
     print(courses)
-    # print(courses.lessons.all())
     lessons = Course.objects.all().prefetch_related('lessons')
-    print(lessons)
+    # print(lessons)
     context = {
         "courses": courses,
         "lessons": lessons,
@@ -21,3 +20,12 @@ def dashboard(request):
 
     return render(request, 'members_area/dashboard.html', {})
 
+
+def lesson(request, pk):
+    lessons = Lesson.objects.get(pk=pk)
+
+    context = {
+        "lessons": lessons,
+    }
+
+    return render(request, "members_area/lesson.html", context)

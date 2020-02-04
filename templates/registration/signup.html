@@ -3,14 +3,26 @@
 {% load crispy_forms_tags %}
 {% block title %}Signup {% endblock %}
 
+
+ {% block stylesheet %}
+  <!-- Custom styles for login -->
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock stylesheet %}
+
 {% block content %}
 
-<header>
-  {% block nav %} {% include 'nav.html' %} {% endblock nav %}
-</header>
+<div class="container banner mt-5" >
+    <div class="  text-center p-4">
+          <a href="/">
+                <img src="{% static '/img/Raodoh_logo.png' %}" alt="logo" class="img-responsive" >
+            </a>
+        <h2 class="login">Welcome Your Private Members' ONLY Area!</h2>
+        <P>New members create your account to begin, existing members login below. </P>
+    </div>
+</div>
 
 
-<div class="container">
+<div class="container formbg">
   <div class="row">
     <div class="col-lg-8 col-md-10 col-sm-10" style="margin: auto">
       <div class="">
@@ -44,11 +56,21 @@
               </div>
           </div>
         </form>
+           <div class="text-center p-4">
+                Already got an account? <a href="/login" class="reset-pwd" >Login </a>
+            </div>
       </div>
     </div>
   </div>
 </div>
 
- 
+
+<div class="container support p-5">
+    <h4>Need Help Or Support?</h4>
+    <hr>
+    <p>Click on the Link below to send us an email mailto:luqman@viraladmedia.com or simply come in to talk to us. THANKS.</p>
+
+</div>
+
 
 {% endblock content %}
