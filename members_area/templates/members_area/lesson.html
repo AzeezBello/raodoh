@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} Members Area {% endblock %}
+
+{% load cloudinary %}
+{% block title %} Lesson {% endblock %}
 
 
 {% block stylesheet %}
@@ -9,51 +11,37 @@
 {% endblock stylesheet %}
 
 
-
-
-
 {% block content %}
 
 <div class="wrapper">
-
     <sidebar>
         {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     </sidebar>
 
     <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                   <li class="nav-item">
+                       <a class="nav-link " href="/dashboard">Dashboard</a>
+                   </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">My Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                      <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                      </button>
+        <h2>{{ lessons.course.title }}</h2>
+        <p style="color: #999";>{{ lessons.title }}</p>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                           <li class="nav-item">
-                               <a class="nav-link " href="/dashboard">Dashboard</a>
-                           </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/profile">My Profile</a>
-                            </li>
+        <video width='100%' height="auto" controls>
+            <source src='{{ MEDIA_URL }}{{ lessons.video }}' type='video/mp4'>
+            Your browser does not support the video tag.
+        </video>
 
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <h2>{{ lessons.course.title }}</h2>
-            <p style="color: #999";>{{ lessons.title }}</p>
-
-
-            <div class="line"></div>
-
-
-            <div class="line"></div>
-
-           </div>
-
+        <div class="line"></div>
+        <div class="line"></div>
     </div>
 
 </div>
@@ -65,5 +53,11 @@
 
 
 {% block js %}
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
 
 {% endblock js %}

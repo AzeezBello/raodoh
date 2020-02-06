@@ -37,6 +37,7 @@ h3{
 .wrapper {
     display: flex;
     width: 100%;
+    align-items: stretch;
 }
 
 /* @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"; */
@@ -69,9 +70,5 @@ p {
     margin: 40px 0;
 }
 
-.video-fluid {
-  width: 100%;
-  height: auto;
-}
 
 

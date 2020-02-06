@@ -6,11 +6,11 @@ from .models import Course, Lesson
 def members_area(request):
     courses = Course.objects.all()
     print(courses)
-    lessons = Course.objects.all().prefetch_related('lessons')
+    # sidebar_lessons = Course.objects.all().prefetch_related('lessons')
     # print(lessons)
     context = {
         "courses": courses,
-        "lessons": lessons,
+        # "sidebar_lessons": sidebar_lessons,
     }
 
     return render(request, 'members_area/index.html', context)
@@ -22,9 +22,17 @@ def dashboard(request):
 
 
 def lesson(request, pk):
+    courses = Course.objects.all()
     lessons = Lesson.objects.get(pk=pk)
 
+    # if request.method == 'POST':
+    #     form = LessonForm(request.POST, request.FILES)
+    #     context = form.instance
+    #     if form.is_valid():
+    #         form.save()
+
     context = {
+        "courses": courses,
         "lessons": lessons,
     }
 

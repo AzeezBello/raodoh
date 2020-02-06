@@ -2,7 +2,7 @@
 
 {% block stylesheet %}
     <!-- Custom styles for sidebar -->
-    <link href="{% static "css/sidebar.css" %}" rel="stylesheet">
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
 {% endblock stylesheet %}
 
 {% block sidebar %}
@@ -18,7 +18,7 @@
         <ul class="list-unstyled components">
             <h4 class="ml-2">Courses</h4>
             {% for course in courses %}
-                <li>
+                <li class="active">
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ course.title | slice:":24"}}</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         {% for lesson in course.lessons.all %}
