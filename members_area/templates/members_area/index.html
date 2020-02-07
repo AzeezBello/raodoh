@@ -7,54 +7,23 @@
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-
-
 {% endblock stylesheet %}
 
 
-
-
-
 {% block content %}
-    
 <div class="wrapper">
-        
     <sidebar>
         {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     </sidebar>
 
     <div id="content">
-
        {% block members_nav %} {% include 'members_nav.html' %} {% endblock members_nav %}
-
         <h2>Course Title </h2>
+
         <p style="color: #999";>Lesson Title</p>
-
-
-      
         <div class="line"></div>
         <div class="line"></div>
     </div>
-
 </div>
-
-
-
-
-
-
 {% endblock %}
 
-
-{% block js %}
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-        });
-
-    });
-</script>
-{% endblock js %}
