@@ -14,6 +14,7 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import django_heroku
 
 from decouple import config, Csv
 
@@ -245,7 +246,8 @@ PWA_APP_LANG = 'en-US'
 # CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', cast=bool)
 # X_FRAME_OPTIONS = config('X_FRAME_OPTIONS')
 
-
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 #
 # # logging config
