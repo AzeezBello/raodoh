@@ -1,50 +1,120 @@
 {% load static %}
 
 {% block stylesheet %}
-    <!-- Custom styles for sidebar -->
-    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
+<style>
+.white{
+    color: #f1f1f1;
+}
+.sidenav-header {
+    background: #0174C7;
+    color: #f1f1f1;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #0174c7;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f1f1f1;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #011625;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: #014A7F;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #012B49;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+</style>
 {% endblock stylesheet %}
 
+
+
 {% block sidebar %}
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <a class="navbar-brand" href="/">
-                <img src="{% static '/img/Raodoh_logo.png' %}" alt="logo" class="img-responsive" style="height: 60px; width: 200px">
-            </a>
-        </div>
-       
+<div class="sidenav">
+    <div class="sidenav-header">
+        <a  href="/">
+            <img src="{% static '/img/Raodoh_logo.png' %}" alt="logo" class="img-responsive" style="height: 60px; width: 200px">
+        </a>
+    </div>
 
-        <ul class="list-unstyled components">
-            <h4 class="ml-2">Courses</h4>
-            {% for course in courses %}
-                <li class="active">
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ course.title | slice:":24"}}</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        {% for lesson in course.lessons.all %}
-                            <li>
-                                <a href="{% url 'lesson' lesson.pk%}">{{ lesson.title }}</a>
-                            </li>
-                        {% endfor %}
-
-                    </ul>
-                </li>
-            {% endfor %}
-        </ul>
-
-        <ul class="list-unstyled CTAs">
-            <li>
-                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-            </li>
-            <li>
-                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-            </li>
-        </ul>
-    </nav>
-
-
-
+    <h4 class="white m-3 pt-3">Courses</h4>
+    {% for course in courses %}
+      <button class="dropdown-btn">{{ course.title | slice:":24"}}
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+          {% for lesson in course.lessons.all %}
+            <a href="{% url 'lesson' lesson.pk%}">{{ lesson.title }}</a>
+          {% endfor %}
+      </div>
+    {% endfor %}
+</div>
 {% endblock sidebar %}
 
 
+
+{% block js %}
+<script type="text/javascript">
+
+    //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+        } else {
+          dropdownContent.style.display = "block";
+        }
+      });
+    }
+</script>
+{% endblock js %}
 
