@@ -24,10 +24,12 @@
         <h2>{{ lessons.course.title }}</h2>
         <p style="color: #999";>{{ lessons.title }}</p>
 
-        <video width='100%' height="auto" controls>
-            <source src='{{ MEDIA_URL }}{{ lessons.video }}' type='video/mp4'>
-            Your browser does not support the video tag.
-        </video>
+<!--        <video width='100%' height="auto" controls>-->
+<!--            <source src='{{ MEDIA_URL }}{{ lessons.video }}' type='video/mp4'>-->
+<!--            Your browser does not support the video tag.-->
+<!--        </video>-->
+
+        <iframe width="1015" height="592" frameborder="0" scrolling="no" src="{{ lessons.video_url }}" allowfullscreen="true"></iframe>
 
         <div class="line"></div>
         <div class="line"></div>

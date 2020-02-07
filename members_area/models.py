@@ -25,7 +25,7 @@ class Lesson(models.Model):
     title = models.CharField("Title", max_length=250, blank=True)
     course = models.ForeignKey(Course, related_name='lessons', on_delete=models.CASCADE, null=True)
     body = models.TextField()
-    url = models.URLField(max_length=350, blank=True, null=True)
+    video_url = models.URLField(max_length=350, blank=True, null=True)
     video = models.FileField(upload_to='videos/', null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
