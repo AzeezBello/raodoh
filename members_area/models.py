@@ -30,6 +30,9 @@ class Lesson(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['create_time']
+
     def __str__(self):
         return self.title
 

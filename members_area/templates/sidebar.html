@@ -87,8 +87,8 @@
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-container">
-          {% for lesson in course.lessons.all %}
-            <a href="{% url 'lesson' lesson.pk%}">{{ lesson.title }}</a>
+          {% for lesson in course.lessons.all  %}
+            <a href="{% url 'lesson' lesson.pk %}">{{ lesson.title }}</a>
           {% endfor %}
       </div>
     {% endfor %}
