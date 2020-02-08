@@ -4,7 +4,7 @@ from .models import Course, Lesson
 
 # Create your views here.
 def members_area(request):
-    courses = Course.objects.all().order_by('-create_time')
+    courses = Course.objects.all().order_by('create_time')
     print(courses)
     # sidebar_lessons = Course.objects.all().prefetch_related('lessons')
     # print(lessons)
