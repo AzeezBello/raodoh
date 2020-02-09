@@ -39,3 +39,13 @@ def lesson(request, pk):
     }
 
     return render(request, "members_area/lesson.html", context)
+
+
+def course(request, pk):
+    courses = Course.objects.get(pk=pk)
+
+    context = {
+        "courses": courses,
+    }
+
+    return render(request, "members_area/course.html", context)

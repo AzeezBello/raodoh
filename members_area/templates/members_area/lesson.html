@@ -21,16 +21,17 @@
     <div id="content">
         {% block members_nav %} {% include 'members_nav.html' %} {% endblock members_nav %}
 
-        <h2>{{ lessons.course.title }}</h2>
-        <p style="color: #999";>{{ lessons.title }}</p>
+        <h2>{{ lessons.title }}</h2>
+        <p style="color: #999";>{{ lessons.body }}</p>
 
 <!--        <video width='100%' height="auto" controls>-->
 <!--            <source src='{{ MEDIA_URL }}{{ lessons.video }}' type='video/mp4'>-->
 <!--            Your browser does not support the video tag.-->
 <!--        </video>-->
 
-        <iframe width="1015" height="592" frameborder="0" scrolling="no" src="{{ lessons.video_url }}" allowfullscreen="true"></iframe>
-
+        <div class=" shadow embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="{{ lessons.video_url }}" allowfullscreen></iframe>
+        </div>
         <div class="line"></div>
         <div class="line"></div>
     </div>
