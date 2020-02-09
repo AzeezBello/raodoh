@@ -1,56 +1,19 @@
-/* navbar */
+/* @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"; */
 
-.navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+body {
+    background: #fafafa;
 }
-.bg-light {
-    background-color: #f8f9fa!important;
+.white{
+    color: #f1f1f1;
 }
-
-
-.navbar-default {
-    background-color: #0174C7;
-    border-color: #0174C7;
-}
-/* Link */
-.navbar-default .navbar-nav > li > a {
-    color: #ffffff;
-}
-
-.strike{
+.red{
     color: rgb(228, 59, 44);
 }
-/* 
-h2{
-    font-size: 46px;
-}
-h3{
-    font-size: 32px;
-} */
-
 
 .wrapper {
     display: flex;
     width: 100%;
 
-}
-
-/* @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"; */
-
-
-body {
-    background: #fafafa;
-}
-
-p {
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
 }
 
 #content {
@@ -69,6 +32,8 @@ p {
     border-bottom: 1px dashed #ddd;
     margin: 40px 0;
 }
+
+
 
 
 

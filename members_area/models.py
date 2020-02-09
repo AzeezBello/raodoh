@@ -15,7 +15,7 @@ class Course(models.Model):
     title = models.CharField("Title", max_length=150, blank=True)
     category = models.ManyToManyField('Category')
     create_time = models.DateTimeField(auto_now_add=True)
-    # lessons = models.ManyToManyField('lesson')
+    # lessons =
 
     def __str__(self):
         return self.title

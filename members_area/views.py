@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import Course, Lesson
 
 
 # Create your views here.
+@login_required
 def members_area(request):
     courses = Course.objects.all().order_by('create_time')
     print(courses)
