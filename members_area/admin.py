@@ -4,11 +4,11 @@ from .models import Course, Lesson, Comment, Category
 
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = [' title', 'create_time']
+    list_display = ['name', 'create_time']
 
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = [' title', 'category', 'create_time']
+    list_display = ['title', 'create_time']
 
 
 class LessonAdmin(admin.ModelAdmin):
