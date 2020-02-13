@@ -22,16 +22,19 @@
 <!--        <span>Toggle Sidebar</span>-->
 <!--      </button>-->
 
+
       <ul class="nav navbar-nav ml-auto">
         {% if user.is_authenticated %}
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {% load cloudinary %}{% cloudinary user.photo.image.public_id className="my-class" height=25 width=25 radius="max" %} {{ user.username }}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/profile">My Profile</a>
-                <a class="dropdown-item" href="/logout">Logout</a>
-            </div>
+        {% if user.is_superuser %}
+        <li class="nav-item">
+            <a class="nav-link " href="/admin">Admin</a>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+            <a class="nav-link " href="/profile">My Profile</a>
+        </li>
+        <li class="nav-item" >
+            <a class="nav-link" href="/logout">Logout</a>
         </li>
         {% else %}
             <li class="nav-item">

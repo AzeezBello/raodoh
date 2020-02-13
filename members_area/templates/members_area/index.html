@@ -11,20 +11,15 @@
 
 
 {% block content %}
-<div class="wrapper">
-    <sidebar>
-        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
-    </sidebar>
-
+<div class="row" >
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     <div id="content">
-       {% block members_nav %} {% include 'members_nav.html' %} {% endblock members_nav %}
-
-
+        {% block members_nav %} {% include 'members_nav.html' %} {% endblock members_nav %}
+        <h4> Hi {{ user.username }},</h4>
         <p style="color: #999";><b class="red">Attention!</b><br/>  Make sure to sign into your member's area at least 3 times a week for any update. As a back up, remember to check your email as well for regular updates.</p>
-
         <div class="line"></div>
         <div class="line"></div>
-         <h4 class="text-center">Need Extra Help?  Ask in person or email luqman@viraladmedia.com</h4>
+        <h5 class="text-center">Need Extra Help?  Ask in person or email luqman@viraladmedia.com</h5>
     </div>
 </div>
 {% endblock %}

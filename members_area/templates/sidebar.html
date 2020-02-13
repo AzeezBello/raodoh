@@ -1,89 +1,20 @@
 {% load static %}
 
 {% block stylesheet %}
-<style>
-
-.sidenav-header {
-    background: #0174C7;
-    color: #f1f1f1;
-}
-
-/* Fixed sidenav, full height */
-.sidenav {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #2B3A4D;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-/* Style the sidenav links and the dropdown button */
-.sidenav a, .dropdown-btn {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 14px;
-  color: #f1f1f1;
-  display: block;
-  border: none;
-  background: none;
-  width:100%;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-
-/* On mouse-over */
-.sidenav a:hover, .dropdown-btn:hover {
-  color: #0174C7;
-}
-
-/* Add an active class to the active dropdown button */
-.active {
-  background-color: #014A7F;
-  color: white;
-}
-
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.dropdown-container {
-  display: none;
-  background-color: #012B49;
-  padding-left: 8px;
-}
-
-/* Optional: Style the caret down icon */
-.fa-caret-down {
-  font-size:32px;
-  float: right;
-  padding-right: 8px;
-}
-
-
-
-@media (max-width: 768px) {
-    .sidenav {
-        margin-left: -250px;
-    }
-    #content {
-        width: 100%;
-    }
-
-}
-</style>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
 {% endblock stylesheet %}
-
 
 
 {% block sidebar %}
 <div class="sidenav">
+
     <div class="sidenav-header">
         <a  href="/">
             <img src="{% static '/img/Raodoh_logo.png' %}" alt="logo" class="img-responsive" style="height: 60px; width: 200px">
         </a>
     </div>
+<!--    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>-->
 
     <h4 class="white m-3 pt-3">Courses</h4>
     {% for course in courses %}
@@ -103,7 +34,6 @@
 
 {% block js %}
 <script type="text/javascript">
-
     //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
     var dropdown = document.getElementsByClassName("dropdown-btn");
     var i;
@@ -120,5 +50,6 @@
       });
     }
 </script>
+
 {% endblock js %}
 

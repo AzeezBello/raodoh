@@ -23,29 +23,26 @@ def dashboard(request):
     return render(request, 'members_area/dashboard.html', {})
 
 
-def lesson(request, pk):
-    courses = Course.objects.all()
-    lessons = Lesson.objects.get(pk=pk)
-
-    # if request.method == 'POST':
-    #     form = LessonForm(request.POST, request.FILES)
-    #     context = form.instance
-    #     if form.is_valid():
-    #         form.save()
-
-    context = {
-        "courses": courses,
-        "lessons": lessons,
-    }
-
-    return render(request, "members_area/lesson.html", context)
-
-
 def course(request, pk):
     courses = Course.objects.get(pk=pk)
 
     context = {
         "courses": courses,
     }
-
     return render(request, "members_area/course.html", context)
+
+
+def lesson(request, pk):
+    courses = Course.objects.all()
+    lessons = Lesson.objects.get(pk=pk)
+    # prev_lesson = lessons.get_previous_by_pk
+    # next_lesson = lessons.get_next_by_pk
+
+    context = {
+        "courses": courses,
+        "lessons": lessons,
+        # "prev_lesson": prev_lesson,
+        # "next_lesson": next_lesson,
+    }
+    return render(request, "members_area/lesson.html", context)
+

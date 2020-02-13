@@ -13,11 +13,8 @@
 
 {% block content %}
 
-<div class="wrapper">
-    <sidebar>
-        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
-    </sidebar>
-
+<div class="row">
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     <div id="content">
         {% block members_nav %} {% include 'members_nav.html' %} {% endblock members_nav %}
 
@@ -34,6 +31,9 @@
         </div>
         <div class="line"></div>
         <div class="line"></div>
+
+
+
     </div>
 
 </div>
