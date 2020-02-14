@@ -8,13 +8,12 @@
 
 {% block sidebar %}
 <div class="sidenav">
-
     <div class="sidenav-header">
         <a  href="/">
             <img src="{% static '/img/Raodoh_logo.png' %}" alt="logo" class="img-responsive" style="height: 60px; width: 200px">
         </a>
     </div>
-<!--    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>-->
+<!--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
 
     <h4 class="white m-3 pt-3">Courses</h4>
     {% for course in courses %}

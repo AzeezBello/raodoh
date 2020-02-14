@@ -3,15 +3,6 @@
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
 /* Fixed sidenav, full height */
 .sidenav {
   height: 100%; /* 100% Full-height */
@@ -43,6 +34,14 @@
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover {
   color: #0174C7;
+}
+
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  top: 0;
+  font-size: 36px;
+  margin-left: 200px;
 }
 
 /* Add an active class to the active dropdown button */

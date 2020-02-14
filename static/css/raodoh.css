@@ -25,9 +25,15 @@ body {
 
 #content {
     width: calc(100% - 250px);
-    padding: 20px;
+    padding: 40px;
     min-height: 100vh;
     transition: margin-left .5s;
     margin-left: 250px;
+    overflow-x: hidden;
 }
+
+.container-fluid {
+    padding: 0px  !important;
+}
+
 
