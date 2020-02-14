@@ -8,7 +8,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib import messages
 from django.template.loader import render_to_string
 from .models import User
-from .forms import UserForm
+from .forms import UserForm, ProfileForm
 from .tokens import account_activation_token
 from django.db import transaction
 
@@ -83,7 +83,7 @@ def profile(request):
 @transaction.atomic
 def edit_profile(request):
     if request.method == 'POST':
-        user_form = ChangeForm(request.POST, request.FILES, instance=request.user)
+        user_form = UserForm(request.POST, request.FILES, instance=request.user)
         form = ProfileForm(request.POST, file=request.FILES, instance=request.user.student)
         if user_form.is_valid() and form.is_valid():
             user_form.save()
@@ -95,7 +95,7 @@ def edit_profile(request):
             messages.error(request, 'Please correct the error below.')
 
     else:
-        user_form = ChangeForm(instance=request.user)
+        user_form = UserForm(instance=request.user)
         form = ProfileForm(instance=request.user)
 
     return render(request, 'registration/edit_profile.html', {
