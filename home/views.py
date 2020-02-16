@@ -56,18 +56,18 @@ def signup(request):
         form = UserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            user.is_active = False
+            user.is_active = True
             user.save()
-            current_site = get_current_site(request)
-            subject = 'Activate Your Raodoh Account'
-            message = render_to_string('registration/activation_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            user.email_user(subject, message)
-            return redirect('activation_sent')
+            # current_site = get_current_site(request)
+            # subject = 'Activate Your Raodoh Account'
+            # message = render_to_string('registration/activation_email.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token': account_activation_token.make_token(user),
+            # })
+            # user.email_user(subject, message)
+            return redirect('members_area')
 
     else:
         form = UserForm()
