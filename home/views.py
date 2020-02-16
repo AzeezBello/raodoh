@@ -83,7 +83,7 @@ def profile(request):
 @transaction.atomic
 def edit_profile(request):
     if request.method == 'POST':
-        user_form = UserForm(request.POST, request.FILES, instance=request.user)
+        user_form = UserForm(request.POST, instance=request.user)
         form = ProfileForm(request.POST, instance=request.user)
         if user_form.is_valid() and form.is_valid():
             user_form.save()
