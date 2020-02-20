@@ -1,5 +1,4 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -26,7 +25,7 @@ class Lesson(models.Model):
     course = models.ForeignKey(Course, related_name='lessons', on_delete=models.CASCADE, null=True)
     body = models.TextField()
     video_url = models.URLField(max_length=350, blank=True, null=True)
-    video = models.FileField(upload_to='videos/', null=True, blank=True)
+    resources = models.FileField(upload_to='resources/', null=True, blank=True)
     create_time = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
 
