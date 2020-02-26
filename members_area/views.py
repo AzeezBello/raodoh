@@ -7,12 +7,9 @@ from .models import Course, Lesson
 @login_required
 def members_area(request):
     courses = Course.objects.all().order_by('create_time')
-    print(courses)
-    # sidebar_lessons = Course.objects.all().prefetch_related('lessons')
-    # print(lessons)
+
     context = {
         "courses": courses,
-        # "sidebar_lessons": sidebar_lessons,
     }
 
     return render(request, 'members_area/index.html', context)

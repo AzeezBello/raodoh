@@ -12,47 +12,32 @@
 
 
 {% block content %}
+    <div class="row">
+        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+        <div id="content">
+            {% block members_nav %} {% include 'members_nav.html' %} {% endblock members_nav %}
 
-<div class="row">
-    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
-    <div id="content">
-        {% block members_nav %} {% include 'members_nav.html' %} {% endblock members_nav %}
+            <h2>{{ lessons.title }}</h2>
+            <p style="color: #999";>{{ lessons.body }}</p>
 
-        <h2>{{ lessons.title }}</h2>
-        <p style="color: #999";>{{ lessons.body }}</p>
+            <div class=" shadow embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="{{ lessons.video_url }}" allowfullscreen></iframe>
+            </div>
 
-<!--        <video width='100%' height="auto" controls>-->
-<!--            <source src='{{ MEDIA_URL }}{{ lessons.video }}' type='video/mp4'>-->
-<!--            Your browser does not support the video tag.-->
-<!--        </video>-->
+            <a class="btn btn-primary btn-lg btn-block mt-5" href="{{ MEDIA_URL }}{{ lessons.resources }}" target="_blank" >Download The PDF</a>
 
-        <div class=" shadow embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="{{ lessons.video_url }}" allowfullscreen></iframe>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
-
-        <a class="btn btn-primary btn-lg btn-block mt-5" href="{{ MEDIA_URL }}{{ lessons.resources }}" target="_blank" >Download The PDF</a>
-
-        <div class="line"></div>
-        <div class="line"></div>
-
-
-
     </div>
-
-</div>
-
-
-
-
 {% endblock %}
 
 
 {% block js %}
-<!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<!-- jQuery Custom Scroller CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
 {% endblock js %}
